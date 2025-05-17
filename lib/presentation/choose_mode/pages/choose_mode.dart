@@ -28,7 +28,9 @@ class ChooseMode extends StatelessWidget {
             ),
           ),
           // ignore: deprecated_member_use
-          Container(color: Colors.black.withOpacity(0.15)),
+          Container(
+            color: Colors.black.withOpacity(0.15),
+          ), // little black background below that gives a dark theme
 
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -85,14 +87,17 @@ class ChooseMode extends StatelessWidget {
                         Text(
                           'Dark Mode',
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
+                            fontWeight:
+                                FontWeight.w600, // Fonts for dark Mode text
                             fontSize: 13,
-                            color: AppColors.grey,
+                            color: AppColors.grey, // color for dark mode text
                           ),
                         ),
                       ],
                     ),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                    ), // padding between the dark mode and light mode container separating them apart by 20
                     Column(
                       children: [
                         ClipOval(
@@ -100,29 +105,35 @@ class ChooseMode extends StatelessWidget {
                             filter: ImageFilter.blur(
                               sigmaX: 10,
                               sigmaY: 10,
-                            ), // IMPLEMENTS THE BLUR FEATURE
+                            ), // IMPLEMENTS THE BLUR FEATURE, Note always keep it at sigma X and Y at 10
                             child: Container(
                               //first circle
                               height: 80,
                               width: 80,
                               decoration: BoxDecoration(
+                                // ignore: deprecated_member_use
                                 color: Color(0xff30393c).withOpacity(0.5),
                                 shape: BoxShape.circle,
                               ),
                               child: SvgPicture.asset(
                                 AppVectors.sun,
-                                fit: BoxFit.none,
+                                fit:
+                                    BoxFit
+                                        .none, // this is used to fit the object in this case the sun image perfectly
                               ),
                             ),
                           ),
                         ),
                         SizedBox(height: 15),
                         Text(
-                          'Light Mode',
+                          'Light Mode', // Text for light mode
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
+                            fontWeight:
+                                FontWeight
+                                    .w600, // Text styling for the light mode text
                             fontSize: 13,
-                            color: AppColors.grey,
+                            color:
+                                AppColors.grey, // Color for the light mode text
                           ),
                         ),
                       ],
@@ -136,17 +147,16 @@ class ChooseMode extends StatelessWidget {
                       //Navigation Call Action to the Next Page which is the choose
                       context,
                       MaterialPageRoute(
+                        // Always make sure thats its a Material Page Route used
                         builder: (BuildContext context) => const ChooseMode(),
                       ),
                     );
                   },
-                  title: 'Get started',
+                  title: 'Continue', // Text for the button
                 ), // call action from BasicApp button page
               ],
             ),
           ),
-
-          //little black background on the bottom of the screen
         ],
       ),
     );
