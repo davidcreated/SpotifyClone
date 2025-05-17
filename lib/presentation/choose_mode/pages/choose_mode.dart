@@ -5,6 +5,8 @@ import 'package:flutter_application_1/common/widgets/button/basic_app_button.dar
 import 'package:flutter_application_1/core/configs/theme/app_colors.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_images.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart';
+import 'package:flutter_application_1/presentation/choose_mode/bloc/theme_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ChooseMode extends StatelessWidget {
@@ -62,24 +64,33 @@ class ChooseMode extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        ClipOval(
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(
-                              sigmaX: 10,
-                              sigmaY: 10,
-                            ), // IMPLEMENTS THE BLUR FEATURE
-                            child: Container(
-                              //first circle
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Color(0xff30393c).withOpacity(0.5),
-                                shape: BoxShape.circle,
+                        GestureDetector(
+                          // this feature is used to determine the action the button will carry which is light mode
+                          onTap: () {
+                            // here the fvunction for the  light theme is called
+                            context.read<ThemeCubit>().updateTheme(
+                              ThemeMode.light,
+                            ); // the theme is being called here
+                          },
+                          child: ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaX: 10,
+                                sigmaY: 10,
+                              ), // IMPLEMENTS THE BLUR FEATURE
+                              child: Container(
+                                //first circle
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff30393c).withOpacity(0.5),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: SvgPicture.asset(
+                                  AppVectors.moon,
+                                  fit: BoxFit.none,
+                                ), // The b=fit feature makes sure the image fits in and resizable
                               ),
-                              child: SvgPicture.asset(
-                                AppVectors.moon,
-                                fit: BoxFit.none,
-                              ), // The b=fit feature makes sure the image fits in and resizable
                             ),
                           ),
                         ),
@@ -100,26 +111,35 @@ class ChooseMode extends StatelessWidget {
                     ), // padding between the dark mode and light mode container separating them apart by 20
                     Column(
                       children: [
-                        ClipOval(
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(
-                              sigmaX: 10,
-                              sigmaY: 10,
-                            ), // IMPLEMENTS THE BLUR FEATURE, Note always keep it at sigma X and Y at 10
-                            child: Container(
-                              //first circle
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                // ignore: deprecated_member_use
-                                color: Color(0xff30393c).withOpacity(0.5),
-                                shape: BoxShape.circle,
-                              ),
-                              child: SvgPicture.asset(
-                                AppVectors.sun,
-                                fit:
-                                    BoxFit
-                                        .none, // this is used to fit the object in this case the sun image perfectly
+                        GestureDetector(
+                          // this feature is used to determine the action the button will carry which is light mode
+                          onTap: () {
+                            // here the fvunction for the  light theme is called
+                            context.read<ThemeCubit>().updateTheme(
+                              ThemeMode.dark,
+                            ); // the theme is being called here
+                          },
+                          child: ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaX: 10,
+                                sigmaY: 10,
+                              ), // IMPLEMENTS THE BLUR FEATURE, Note always keep it at sigma X and Y at 10
+                              child: Container(
+                                //first circle
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  // ignore: deprecated_member_use
+                                  color: Color(0xff30393c).withOpacity(0.5),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: SvgPicture.asset(
+                                  AppVectors.sun,
+                                  fit:
+                                      BoxFit
+                                          .none, // this is used to fit the object in this case the sun image perfectly
+                                ),
                               ),
                             ),
                           ),
