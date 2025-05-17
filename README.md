@@ -1,17 +1,28 @@
-# flutter_application_1
+🎵 Spotify Clone App
+This project is a feature-rich Spotify clone app built with Flutter, designed to replicate the core functionality and user experience of the original Spotify platform. It offers an elegant, responsive UI, seamless navigation, and essential music player features — all crafted for a smooth and modern mobile experience.
 
-A new Flutter project.
+🚀 Key Features
+🎧 Beautifully designed UI inspired by Spotify
 
-## Getting Started
+🔍 Search functionality for songs, artists, and playlists
 
-This project is a starting point for a Flutter application.
+🎵 Music playback with play, pause, skip, and repeat controls
 
-A few resources to get you started if this is your first Flutter project:
+📜 Playlist and album screens
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🧑‍🎤 Artist profile views
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# My-First-Flutter-Application" 
+❤️ Like/favorite songs
+
+🔗 Ready for backend and audio streaming integration
+
+👨‍💻 Tech Stack
+Flutter: UI and logic
+
+Dart: Programming language
+
+Firebase (planned): Authentication & backend services
+
+⚙️ Still under development — new features and improvements are added regularly! Stay tuned.
+
+![Screenshot (78)](https://github.com/user-attachments/assets/f3a33708-ac99-4f8e-abf1-b93c3212300a)
