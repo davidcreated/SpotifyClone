@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/button/basic_app_button.dart';
+import 'package:flutter_application_1/core/configs/theme/app_colors.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_images.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart';
 import 'package:flutter_svg/svg.dart';
@@ -57,42 +58,74 @@ class ChooseMode extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // Align objects to the center
                   children: [
-                    ClipOval(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(
-                          sigmaX: 10,
-                          sigmaY: 10,
-                        ), // IMPLEMENTS THE BLUR FEATURE
-                        child: Container(
-                          //first circle
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: Color(0xff30393c).withOpacity(0.5),
-                            shape: BoxShape.circle,
+                    Column(
+                      children: [
+                        ClipOval(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(
+                              sigmaX: 10,
+                              sigmaY: 10,
+                            ), // IMPLEMENTS THE BLUR FEATURE
+                            child: Container(
+                              //first circle
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                color: Color(0xff30393c).withOpacity(0.5),
+                                shape: BoxShape.circle,
+                              ),
+                              child: SvgPicture.asset(
+                                AppVectors.moon,
+                                fit: BoxFit.none,
+                              ), // The b=fit feature makes sure the image fits in and resizable
+                            ),
                           ),
-                          child: SvgPicture.asset(AppVectors.moon),
                         ),
-                      ),
+                        SizedBox(height: 15),
+                        Text(
+                          'Dark Mode',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                      ],
                     ),
                     Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
-                    ClipOval(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(
-                          sigmaX: 10,
-                          sigmaY: 10,
-                        ), // IMPLEMENTS THE BLUR FEATURE
-                        child: Container(
-                          //first circle
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            color: Color(0xff30393c).withOpacity(0.5),
-                            shape: BoxShape.circle,
+                    Column(
+                      children: [
+                        ClipOval(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(
+                              sigmaX: 10,
+                              sigmaY: 10,
+                            ), // IMPLEMENTS THE BLUR FEATURE
+                            child: Container(
+                              //first circle
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                color: Color(0xff30393c).withOpacity(0.5),
+                                shape: BoxShape.circle,
+                              ),
+                              child: SvgPicture.asset(
+                                AppVectors.sun,
+                                fit: BoxFit.none,
+                              ),
+                            ),
                           ),
-                          child: SvgPicture.asset(AppVectors.sun),
                         ),
-                      ),
+                        SizedBox(height: 15),
+                        Text(
+                          'Light Mode',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
