@@ -36,7 +36,7 @@ class SignupOrSignin extends StatelessWidget {
                         .center, //to align all the items in the column to the center vertically
                 crossAxisAlignment:
                     CrossAxisAlignment
-                        .center, // to alignall the items in the column to the center Horizontally
+                        .center, // to align all the items in the column to the center Horizontally
                 children: [
                   SvgPicture.asset(AppVectors.logo),
                   const SizedBox(height: 55),
