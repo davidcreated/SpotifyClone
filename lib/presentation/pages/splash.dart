@@ -27,7 +27,9 @@ class _SplashPageState extends State<SplashPage> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => GetStartedPage(),
+        builder:
+            (BuildContext context) =>
+                GetStartedPage(), // Navigation to the next page which is the GetStartedPage
       ), // Navigation to getstarted Page after a brief 2 mins delay
     );
   }

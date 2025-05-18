@@ -26,6 +26,7 @@ class GetStartedPage extends StatelessWidget {
               ),
             ),
           ),
+          // ignore: deprecated_member_use
           Container(color: Colors.black.withOpacity(0.15)),
 
           Padding(

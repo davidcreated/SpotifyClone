@@ -5,6 +5,7 @@ import 'package:flutter_application_1/common/widgets/button/basic_app_button.dar
 import 'package:flutter_application_1/core/configs/theme/app_colors.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_images.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart';
+import 'package:flutter_application_1/presentation/auth/pages/signup_or_signin.dart';
 import 'package:flutter_application_1/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -168,7 +169,9 @@ class ChooseMode extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         // Always make sure thats its a Material Page Route used
-                        builder: (BuildContext context) => const ChooseMode(),
+                        builder:
+                            (BuildContext context) =>
+                                const SignupOrSignin(), // Navigation to the next Page which is the sign up or sign in page
                       ),
                     );
                   },
