@@ -117,7 +117,7 @@ class ChooseMode extends StatelessWidget {
                           onTap: () {
                             // here the fvunction for the  light theme is called
                             context.read<ThemeCubit>().updateTheme(
-                              ThemeMode.dark,
+                              ThemeMode.light,
                             ); // the theme is being called here
                           },
                           child: ClipOval(

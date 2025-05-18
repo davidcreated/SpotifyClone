@@ -40,11 +40,15 @@ class SignupOrSignin extends StatelessWidget {
                 children: [
                   SvgPicture.asset(AppVectors.logo),
                   const SizedBox(height: 55),
-                  const Text(
+                  Text(
                     'Enjoy Listening To Music',
                     style: TextStyle(
                       fontWeight: FontWeight.bold, // font weight of the text
-                      color: Colors.black,
+                      color:
+                          context.isDarkMode
+                              ? Colors.white
+                              : Colors
+                                  .black, // An extension was added here to change the color of the Enjoy Listening To Music text on switching the theme of the app to either light mode or dark mode
                       fontSize: 20,
                     ),
                   ),
