@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/button/basic_app_button.dart';
+import 'package:flutter_application_1/common/widgets/button/helpers/is_darkmode.dart';
 import 'package:flutter_application_1/core/configs/theme/app_colors.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_images.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart';
@@ -88,6 +89,11 @@ class SignupOrSignin extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
+                              color:
+                                  context.isDarkMode
+                                      ? Colors.white
+                                      : Colors
+                                          .black, // An extension was added here to change the color of the sign in text on switching the theme of the app to either light mode or dark mode
                             ),
                           ),
                         ),

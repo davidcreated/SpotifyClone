@@ -2,22 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 class ThemeCubit extends HydratedCubit<ThemeMode> {
-  //Theme was used to create the two overrides as they were mssing initially
-
   ThemeCubit() : super(ThemeMode.system);
 
-  void updateTheme(ThemeMode themeMode) => emit(
-    themeMode,
-  ); // this line of code is a method tha changes the ccurrent themeto light mode or dark mode
+  // Method to update the current theme
+  void updateTheme(ThemeMode themeMode) => emit(themeMode);
+
+  // Deserialize the saved theme from storage
   @override
-  fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
+  ThemeMode? fromJson(Map<String, dynamic> json) {
+    final themeString = json['theme'] as String?;
+    switch (themeString) {
+      case 'light':
+        return ThemeMode.light;
+      case 'dark':
+        return ThemeMode.dark;
+      case 'system':
+        return ThemeMode.system;
+      default:
+        return ThemeMode.system;
+    }
   }
 
+  // Serialize the theme mode to a JSON map
   @override
-  Map<String, dynamic>? toJson(state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
+  Map<String, dynamic>? toJson(ThemeMode state) {
+    return {
+      'theme': state.toString().split('.').last, // light, dark, or system
+    };
   }
 }
