@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/common/widgets/button/appbar/app_bar.dart';
 import 'package:flutter_application_1/common/widgets/button/basic_app_button.dart';
 import 'package:flutter_application_1/common/widgets/button/helpers/is_darkmode.dart';
 import 'package:flutter_application_1/core/configs/theme/app_colors.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_images.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart';
+import 'package:flutter_application_1/presentation/auth/pages/signup.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SignupOrSignin extends StatelessWidget {
@@ -14,6 +16,7 @@ class SignupOrSignin extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          const BasicAppbar(), // ✅ Now placed correctly as a child
           Align(
             alignment: Alignment.topRight,
             child: SvgPicture.asset(AppVectors.toppattern),
@@ -31,73 +34,60 @@ class SignupOrSignin extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
-                mainAxisAlignment:
-                    MainAxisAlignment
-                        .center, //to align all the items in the column to the center vertically
-                crossAxisAlignment:
-                    CrossAxisAlignment
-                        .center, // to align all the items in the column to the center Horizontally
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(AppVectors.logo),
                   const SizedBox(height: 55),
                   Text(
                     'Enjoy Listening To Music',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold, // font weight of the text
-                      color:
-                          context.isDarkMode
-                              ? Colors.white
-                              : Colors
-                                  .black, // An extension was added here to change the color of the Enjoy Listening To Music text on switching the theme of the app to either light mode or dark mode
+                      fontWeight: FontWeight.bold,
+                      color: context.isDarkMode ? Colors.white : Colors.black,
                       fontSize: 20,
                     ),
                   ),
-                  const SizedBox(
-                    height: 21,
-                  ), // a layout widget used to give a fixed amount of space or dimension (height and/or width) to its child or to create empty space between widgets.
-                  const Text(
+                  const SizedBox(height: 21),
+                  Text(
                     'Spotify is a proprietary Swedish audio streaming and media services provider',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: AppColors.grey,
                       fontSize: 17,
                     ),
-                    textAlign:
-                        TextAlign
-                            .center, // to align the spotify is a proprietary text to the center
+                    textAlign: TextAlign.center,
                   ),
-
                   const SizedBox(height: 21),
-                  // a layout widget used to give a fixed amount of space or dimension (height and/or width) to its child or to create empty space between widgets
                   Row(
                     children: [
                       Expanded(
-                        // used to create the button
                         flex: 1,
                         child: BasicAppButton(
-                          // responsible for the green button containingthe text register
-                          onPressed: () {},
-                          title: 'Register', // text on the button
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => Signup(),
+                              ),
+                            );
+                          },
+                          title: 'Register',
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ), //layout widget used to give a fixed amount of space or dimension (height and/or width) to its child or to create empty space between widgets
+                      const SizedBox(width: 20),
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                          // responsible for the button containing the sign in text
                           onPressed: () {},
                           child: Text(
-                            'Sign in', //text for Sign in
+                            'Sign in',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                               color:
                                   context.isDarkMode
                                       ? Colors.white
-                                      : Colors
-                                          .black, // An extension was added here to change the color of the sign in text on switching the theme of the app to either light mode or dark mode
+                                      : Colors.black,
                             ),
                           ),
                         ),
