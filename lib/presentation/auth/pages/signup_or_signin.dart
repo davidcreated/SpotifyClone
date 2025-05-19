@@ -65,6 +65,7 @@ class SignupOrSignin extends StatelessWidget {
                         child: BasicAppButton(
                           onPressed: () {
                             Navigator.push(
+                              // Naviagtion for the register button to the next page
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) => Signup(),
