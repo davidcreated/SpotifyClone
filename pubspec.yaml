@@ -38,7 +38,7 @@ dependencies:
   flutter_bloc: ^9.1.1 
   hydrated_bloc: ^10.0.0  # always check pubdev site for the updated versions
   path_provider: ^2.1.5
-
+  firebase_core: 
 
 dev_dependencies:
   flutter_test:

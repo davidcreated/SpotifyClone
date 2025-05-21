@@ -40,15 +40,7 @@ class Signup extends StatelessWidget {
             ), // the widget for the enterpassword text field was implemented here
             const SizedBox(height: 20),
             BasicAppButton(
-              onPressed: () {
-                Navigator.push(
-                  // Naviagtion for the register button to the next page
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => Signin(),
-                  ),
-                );
-              },
+              onPressed: () {},
               title: 'Create Account',
             ), // the button containing the Create Account text was implemented here
           ],
@@ -101,7 +93,13 @@ class Signup extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                // Naviagtion for the register button to the next page
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => Signin()),
+              );
+            },
             child: Text('Sign In'),
           ), // responsible for the sign in text
         ],

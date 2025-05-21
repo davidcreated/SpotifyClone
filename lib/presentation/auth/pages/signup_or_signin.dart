@@ -5,6 +5,7 @@ import 'package:flutter_application_1/common/widgets/button/helpers/is_darkmode.
 import 'package:flutter_application_1/core/configs/theme/app_colors.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_images.dart';
 import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart';
+import 'package:flutter_application_1/presentation/auth/pages/signin.dart';
 import 'package:flutter_application_1/presentation/auth/pages/signup.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -79,7 +80,15 @@ class SignupOrSignin extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              // Naviagtion for the register button to the next page
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => Signin(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'Sign in',
                             style: TextStyle(

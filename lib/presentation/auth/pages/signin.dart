@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/button/appbar/app_bar.dart';
 import 'package:flutter_application_1/common/widgets/button/basic_app_button.dart';
+import 'package:flutter_application_1/presentation/auth/pages/signup.dart';
 
 class Signin extends StatelessWidget {
   const Signin({super.key});
@@ -38,7 +39,7 @@ class Signin extends StatelessWidget {
             const SizedBox(height: 20),
             BasicAppButton(
               onPressed: () {},
-              title: 'Create Account',
+              title: 'Sign In',
             ), // the button containing the Create Account text was implemented here
           ],
         ),
@@ -90,7 +91,13 @@ class Signin extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                // Naviagtion for the register button to the next page
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => Signup()),
+              );
+            },
             child: Text('Register Now'),
           ), // responsible for the sign in text
         ],
