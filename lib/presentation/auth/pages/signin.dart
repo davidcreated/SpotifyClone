@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/button/appbar/app_bar.dart';
 import 'package:flutter_application_1/common/widgets/button/basic_app_button.dart';
-import 'package:flutter_application_1/presentation/auth/pages/signin.dart';
 
-class Signup extends StatelessWidget {
-  const Signup({super.key});
+class Signin extends StatelessWidget {
+  const Signin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +23,7 @@ class Signup extends StatelessWidget {
               children: [_clickhereText(context), _click()],
             ), //this implements the space between the register text and the Textfield , the spacing goes for an amount of 50
             const SizedBox(height: 25),
-            _fullNameField(
-              context,
-            ), // the widget for the fullname text field was implemented here
+
             const SizedBox(height: 20),
             _enteremailField(
               // the widget for the enter email text field was implemented here
@@ -40,15 +37,7 @@ class Signup extends StatelessWidget {
             ), // the widget for the enterpassword text field was implemented here
             const SizedBox(height: 20),
             BasicAppButton(
-              onPressed: () {
-                Navigator.push(
-                  // Naviagtion for the register button to the next page
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => Signin(),
-                  ),
-                );
-              },
+              onPressed: () {},
               title: 'Create Account',
             ), // the button containing the Create Account text was implemented here
           ],
@@ -60,7 +49,7 @@ class Signup extends StatelessWidget {
   Widget _registerText() {
     // this is the widget responsible for the register text and all its its properties
     return const Text(
-      'Register',
+      'Sign In',
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
       textAlign: TextAlign.center,
     );
@@ -96,13 +85,13 @@ class Signup extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            'Do You Have An Account ? ',
+            'Not a Member ?',
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
             textAlign: TextAlign.center,
           ),
           TextButton(
             onPressed: () {},
-            child: Text('Sign In'),
+            child: Text('Register Now'),
           ), // responsible for the sign in text
         ],
       ),
@@ -110,20 +99,12 @@ class Signup extends StatelessWidget {
   }
 
   // Not that the changes , styling and adjustments of this widget and its text field takes place in the app theme page for both the light theme and dark theme
-  Widget _fullNameField(BuildContext context) {
-    return TextField(
-      decoration: const InputDecoration(
-        hintText:
-            'Full Name', // responsible for the hinttext fullname contained in the textfield
-      ).applyDefaults(Theme.of(context).inputDecorationTheme),
-    ); // this represents widgets the textfield where the user fullname will be placed and all its proprties including its fill color , border radius
-  }
 
   Widget _enteremailField(BuildContext context) {
     return TextField(
       decoration: const InputDecoration(
         hintText:
-            'Enter Email', // responsible for the hinttext enteremail contained in the textfield
+            'Enter Username Or Email', // responsible for the hinttext enteremail or Username contained in the textfield
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
     ); // this represents widgets the textfield where the user enteremal will be placed and all its proprties including its fill color , border radius
   }
