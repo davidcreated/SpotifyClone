@@ -4,7 +4,8 @@ import 'package:flutter_application_1/core/configs/theme/assets/app_vectors.dart
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget? title;
+  // seek line 48 and 49
+  final Widget? title; // seek line 17
   const BasicAppbar({this.title, super.key});
 
   @override
@@ -14,7 +15,13 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
           Colors
               .transparent, // color of the background surrounding the back button
       elevation: 0,
-      title: SvgPicture.asset(AppVectors.logo),
+      centerTitle: true, // Aligns the spotify logo to the middle
+      title: SvgPicture.asset(
+        AppVectors
+            .logo, // Note that the logo was placed as a title as the top of th screen
+        height: 40,
+        width: 40,
+      ), // reponsible for the logo on top of the screen in this page
       leading: IconButton(
         onPressed: () {
           Navigator.pop(context); // the action for the back button
