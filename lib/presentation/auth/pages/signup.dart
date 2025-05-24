@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/button/appbar/app_bar.dart';
 import 'package:flutter_application_1/common/widgets/button/basic_app_button.dart';
+import 'package:flutter_application_1/data/models/auth/create_user_req.dart';
+import 'package:flutter_application_1/domain/usecases/auth/signup.dart';
 import 'package:flutter_application_1/presentation/auth/pages/signin.dart';
+import 'package:flutter_application_1/service_locator.dart';
 
 class Signup extends StatelessWidget {
-  const Signup({super.key});
+  Signup({super.key});
+  // Here Controllers for the textfields were created
+
+  final TextEditingController _fullName = TextEditingController();
+  final TextEditingController _enteremail = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,16 @@ class Signup extends StatelessWidget {
             ), // the widget for the enterpassword text field was implemented here
             const SizedBox(height: 20),
             BasicAppButton(
-              onPressed: () {},
+              onPressed: () async {
+                var result = await sl<SignupUseCase>().call(
+                  params: CreateUserReq(
+                    fulName: _fullName.text.toString(),
+                    email: _enteremail.text.toString(),
+                    password: _password.text.toString(),
+                  ),
+                );
+                result.fold((1){},(r){});
+              },
               title: 'Create Account',
             ), // the button containing the Create Account text was implemented here
           ],
@@ -110,6 +127,7 @@ class Signup extends StatelessWidget {
   // Not that the changes , styling and adjustments of this widget and its text field takes place in the app theme page for both the light theme and dark theme
   Widget _fullNameField(BuildContext context) {
     return TextField(
+      controller: _fullName,
       decoration: const InputDecoration(
         hintText:
             'Full Name', // responsible for the hinttext fullname contained in the textfield
@@ -119,6 +137,7 @@ class Signup extends StatelessWidget {
 
   Widget _enteremailField(BuildContext context) {
     return TextField(
+      controller: _enteremail,
       decoration: const InputDecoration(
         hintText:
             'Enter Email', // responsible for the hinttext enteremail contained in the textfield
@@ -128,6 +147,7 @@ class Signup extends StatelessWidget {
 
   Widget _passwordField(BuildContext context) {
     return TextField(
+      controller: _password,
       decoration: const InputDecoration(
         hintText:
             'Enter Password', // responsible for the hinttext fullname contained in the textfield

@@ -39,6 +39,9 @@ dependencies:
   hydrated_bloc: ^10.0.0  # always check pubdev site for the updated versions
   path_provider: ^2.1.5
   firebase_core: 
+  firebase_auth:
+  get_it:
+  dartz:
 
 dev_dependencies:
   flutter_test:
